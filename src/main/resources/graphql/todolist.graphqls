@@ -1,0 +1,23 @@
+type Task {
+    id: ID!
+    title: String!
+    description: String!
+    category: String
+    status: String
+}
+
+input TaskInput{
+    title: String!
+    description: String!
+    category: String
+}
+
+# The Root Query for the application
+type Query {
+    allTasks(count: Int, offset: Int): [Task]!
+}
+
+# The Root Mutation for the application
+type Mutation {
+    saveTasks(task: TaskInput): Task!
+}
